@@ -1,12 +1,35 @@
 package at.htlinn.fischer;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
 public class Kunde
 {
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Setter
+	@Getter
     private int id;
+	@Setter
+	@Getter
     private String titelv;
+	@Setter
+	@Getter
     private String vorname;
+	@Setter
+	@Getter
     private String nachname;
+	@Setter
+	@Getter
     private String titeln;
+	
+	public static int anzahl;
 
 
 
@@ -18,6 +41,10 @@ public class Kunde
         this.vorname = vorname;
         this.nachname = nachname;
         this.titeln = titeln;
+        anzahl+=1;
+    }
+    public Kunde() {
+    	
     }
     public int getKunde_id()
     {

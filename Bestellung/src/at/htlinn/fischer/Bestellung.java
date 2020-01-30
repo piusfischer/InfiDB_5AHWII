@@ -1,19 +1,50 @@
 package at.htlinn.fischer;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Getter;
+import lombok.Setter;
+import tirol.htl_anichstrasse.jpa_test2.Hobby2;
+@Entity
 public class Bestellung {
-
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Setter
+	@Getter
     private int id;
-    private int kunde_id;
-    private int adresse_rechnung_id;
-    private int adresse_liefer_id;
+	@Setter
+	@Getter
+    private Kunde kunde;
+	@Setter
+	@Getter
+    private Adresse arechnung;
+	@Setter
+	@Getter
+    private Adresse aliefer;
+    
+	public static int anzahl;
 
-    public Bestellung(int id, int idk, int idar, int idal){
+    public Bestellung(int id, Kunde kd, Adresse ar, Adresse al){
         this.id = id;
-        this.kunde_id = idk;
-        this.adresse_rechnung_id = idar;
-        this.adresse_liefer_id = idal;
+        this.kunde = kd;
+        this.arechnung = ar;
+        this.aliefer= al;
+        anzahl+=1;
     }
-
+    public Bestellung() {
+    	
+    }
+    
+    public Kunde getKunde() {
+		return kunde;
+	}
+	
+	public void setKunde(Kunde kunde) {
+		this.kunde=kunde;
+	}
     public int getId()
     {
         return id;
@@ -23,30 +54,21 @@ public class Bestellung {
         this.id = id;
     }
 
-    public int getKunde_id()
-    {
-        return kunde_id;
-    }
-    public void setKunde_id(int kunde_id)
-    {
-        this.kunde_id = kunde_id;
-    }
+    public Adresse getARadresse() {
+		return arechnung;
+	}
+	
+	public void setARadresse(Adresse arechnung) {
+		this.arechnung=arechnung;
+	}
+	
+	public Adresse getALadresse() {
+		return aliefer;
+	}
+	
+	public void setALadresse(Adresse aliefer) {
+		this.aliefer=aliefer;
+	}
 
-    public int getAdresse_rechnung_id()
-    {
-        return adresse_rechnung_id;
-    }
-    public void setAdresse_rechnung_id(int adresse_rechnung_id)
-    {
-        this.adresse_rechnung_id = adresse_rechnung_id;
-    }
-
-    public int getAdresse_liefer_id()
-    {
-        return adresse_liefer_id;
-    }
-    public void setAdresse_liefer_id(int adresse_liefer_id)
-    {
-        this.adresse_liefer_id = adresse_liefer_id;
-    }
+    
 }

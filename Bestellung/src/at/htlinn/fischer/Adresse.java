@@ -1,13 +1,35 @@
 package at.htlinn.fischer;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
 public class Adresse
-{
+{	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Setter
+	@Getter
     private int id;
+	@Setter
+	@Getter
     private String stadt;
+	@Setter
+	@Getter
     private String strasse;
+	@Setter
+	@Getter
     private int plz;
+	@Setter
+	@Getter
     private int hnr;
+	
+	public static int anzahl;
 
     public Adresse(int id, String stadt, String strasse, int plz, int hnr)
     {
@@ -16,6 +38,10 @@ public class Adresse
         this.strasse = strasse;
         this.plz = plz;
         this.hnr = hnr;
+        anzahl+=1;
+    }
+    public Adresse() {
+    	
     }
 
     public int getAdresse_id()
