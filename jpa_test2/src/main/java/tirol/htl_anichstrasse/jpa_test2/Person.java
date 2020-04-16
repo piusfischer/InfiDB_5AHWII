@@ -18,17 +18,18 @@ public class Person {
 	private String lastName;
 	@Setter
 	@Getter
-	private Hobby2 hoppy;
+	private Hobby2 hobby;
 	
 	@Transient
 	private long aliveSince;
 	
-	public Person(long id, int age, String firstName, String lastName) {
+	public Person(long id, int age, String firstName, String lastName, Hobby2 hobby) {
 		this.id=id;
 		this.age=age;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.aliveSince = System.currentTimeMillis();
+		this.hobby=hobby;
 		
 	}
 	public Person() {}
@@ -68,6 +69,14 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public Hobby2 getHobby2() {
+		return hobby;
+	}
+	
+	public void setHobby2(Hobby2 hobby) {
+		this.hobby=hobby;
 	}
 	
 
